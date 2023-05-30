@@ -38,7 +38,7 @@ class PresentationController(val presentationService: PresentationService) {
         return ResponseEntity(presentationService.createPresentation(mapper.presentationDTOToPresentation(presentation)), HttpStatus.OK)
     }
 
-    @PostMapping("/{id}")
+    @PutMapping("/{id}")
     fun updatePresentation(@PathVariable id: String, @RequestBody presentation: PresentationDTO): ResponseEntity<String>{
         var updatedPresentation = presentation;
         updatedPresentation.id = id

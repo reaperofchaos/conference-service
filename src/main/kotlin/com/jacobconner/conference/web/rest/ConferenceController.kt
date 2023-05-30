@@ -38,12 +38,13 @@ class ConferenceController(val conferenceService: ConferenceService) {
 
     @PostMapping("/")
     fun createConference(@RequestBody conference: ConferenceDTO): ResponseEntity<String>{
+        System.out.println(conference)
         return ResponseEntity(conferenceService.createConference(mapper.ConferenceDTOToConference(conference)), HttpStatus.OK)
     }
 
-    @PostMapping("/{id}")
+    @PutMapping("/{id}")
     fun updateConference(@PathVariable id: String, @RequestBody conference: ConferenceDTO): ResponseEntity<String>{
-        var updatedConference = conference;
+        var updatedConference: ConferenceDTO = conference;
         updatedConference.id = id
         return ResponseEntity(conferenceService.updateConference(mapper.ConferenceDTOToConference(updatedConference)), HttpStatus.OK)
     }

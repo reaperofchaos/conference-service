@@ -2,16 +2,18 @@ package com.jacobconner.conference.service.mappers
 
 import Conference
 import com.jacobconner.conference.dto.ConferenceDTO
+import java.time.Instant
 
 class ConferenceMapper {
+
     fun Conference.toConferenceDTO() = ConferenceDTO(
         id = id,
         name = name,
         description = description,
         website = website,
         location = location,
-        dateStart = dateStart,
-        dateEnd = dateEnd
+        dateStart = dateStart.toString(),
+        dateEnd = dateEnd.toString()
     )
 
     fun ConferenceToConferenecDTO(conference: Conference): ConferenceDTO{
@@ -40,7 +42,7 @@ class ConferenceMapper {
         description = description,
         website = website,
         location = location,
-        dateStart = dateStart,
-        dateEnd = dateEnd
+        dateStart = Instant.parse(dateStart),
+        dateEnd = Instant.parse(dateEnd)
     )
 }

@@ -5,7 +5,7 @@ import com.jacobconner.conference.domain.Section
 import java.time.Instant
 
 data class PresentationDTO(
-    var id: String,
+    var id: String?,
     var conferenceId: String,
     var name: String,
     var description: String,

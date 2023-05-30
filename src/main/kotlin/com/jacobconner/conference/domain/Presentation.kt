@@ -7,7 +7,7 @@ import java.time.Instant
 @Document(collection = "presentation")
 data class Presentation (
     @Id
-    val id: String,
+    val id: String?,
     val conferenceId: String,
     val name: String,
     val description: String,

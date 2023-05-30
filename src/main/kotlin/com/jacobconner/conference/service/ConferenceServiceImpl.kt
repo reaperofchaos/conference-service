@@ -22,7 +22,7 @@ class ConferenceServiceImpl(val conferenceRepository: ConferenceRepository): Con
     }
 
     override fun createConference(conference: Conference): String {
-        conferenceRepository.insert(conference)
+        conferenceRepository.save(conference)
         return "The conference, ${conference.name} was successfully created."
 
     }
