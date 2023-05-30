@@ -5,11 +5,11 @@ import com.jacobconner.conference.domain.Section
 import java.time.Instant
 
 data class PresentationDTO(
-    val id: String,
-    val conferenceId: String,
-    val name: String,
-    val description: String,
-    val authors: List<Author>,
-    val notes: List<Section>,
-    val date: Instant
+    var id: String,
+    var conferenceId: String,
+    var name: String,
+    var description: String,
+    var authors: List<Author>,
+    var notes: List<Section>,
+    var date: Instant
 )

@@ -1,6 +1,7 @@
 package com.jacobconner.conference.service
 
 import com.jacobconner.conference.domain.Author
+import com.jacobconner.conference.dto.AuthorDTO
 import com.jacobconner.conference.repository.AuthorRepository
 import org.springframework.data.repository.findByIdOrNull
 import org.springframework.stereotype.Service
@@ -22,7 +23,7 @@ class AuthorServiceImpl(val authorRepository: AuthorRepository): AuthorService {
     }
 
     override fun createAuthor(author: Author): String {
-        authorRepository.insert(author)
+        authorRepository.save(author)
         return "Author ${author.firstName} ${author.lastName} was successfully added."
     }
 

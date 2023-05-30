@@ -40,10 +40,10 @@ class PresentationController(val presentationService: PresentationService) {
 
     @PostMapping("/{id}")
     fun updatePresentation(@PathVariable id: String, @RequestBody presentation: PresentationDTO): ResponseEntity<String>{
-        if(presentationService.findPresentationById(id) !== null){
-            return ResponseEntity(presentationService.updatePresentation(mapper.presentationDTOToPresentation(presentation)), HttpStatus.OK)
-        }
-        return ResponseEntity("Unable to update. Presentation was not found", HttpStatus.NOT_FOUND)
+        var updatedPresentation = presentation;
+        updatedPresentation.id = id
+        return ResponseEntity(presentationService.updatePresentation(mapper.presentationDTOToPresentation(updatedPresentation)), HttpStatus.OK)
+
     }
 
 

@@ -4,11 +4,11 @@ import com.jacobconner.conference.domain.LocationData
 import java.time.Instant
 
 data class ConferenceDTO(
-    val id: String,
-    val name: String,
-    val description: String?,
-    val website: String?,
-    val location: LocationData?,
-    val dateStart: Instant?,
-    val dateEnd: Instant?,
+    var id: String,
+    var name: String,
+    var description: String?,
+    var website: String?,
+    var location: LocationData?,
+    var dateStart: Instant?,
+    var dateEnd: Instant?,
 )

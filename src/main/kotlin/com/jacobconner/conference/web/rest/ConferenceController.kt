@@ -43,10 +43,9 @@ class ConferenceController(val conferenceService: ConferenceService) {
 
     @PostMapping("/{id}")
     fun updateConference(@PathVariable id: String, @RequestBody conference: ConferenceDTO): ResponseEntity<String>{
-        if(conferenceService.findConferenceById(id) !== null){
-            return ResponseEntity(conferenceService.updateConference(mapper.ConferenceDTOToConference(conference)), HttpStatus.OK)
-        }
-        return ResponseEntity("Unable to update. Conference was not found", HttpStatus.NOT_FOUND)
+        var updatedConference = conference;
+        updatedConference.id = id
+        return ResponseEntity(conferenceService.updateConference(mapper.ConferenceDTOToConference(updatedConference)), HttpStatus.OK)
     }
 
 

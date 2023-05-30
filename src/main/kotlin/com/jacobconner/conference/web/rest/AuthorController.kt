@@ -35,12 +35,11 @@ class AuthorController(val authorService: AuthorService) {
         return ResponseEntity(authorService.createAuthor(mapper.AuthorDTOToAuthor(author)), HttpStatus.OK)
     }
 
-    @PostMapping("/{id}")
+    @PutMapping("/{id}")
     fun updateAuthor(@PathVariable id: String, @RequestBody author: AuthorDTO): ResponseEntity<String>{
-        if(authorService.findByAuthorID(id) !== null){
-            return ResponseEntity(authorService.updateAuthor(mapper.AuthorDTOToAuthor(author)), HttpStatus.OK)
-        }
-        return ResponseEntity("Unable to update. Author was not found", HttpStatus.NOT_FOUND)
+        var newAuthor = author
+        newAuthor.id = id;
+        return ResponseEntity(authorService.updateAuthor(mapper.AuthorDTOToAuthor(newAuthor)), HttpStatus.OK)
     }
 
 
